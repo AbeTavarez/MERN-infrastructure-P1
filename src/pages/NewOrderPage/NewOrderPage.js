@@ -17,21 +17,30 @@ export default function NewOrderPage({ user, setUser }) {
   const navigate = useNavigate();
 
   useEffect(function() {
+
     async function getItems() {
       const items = await itemsAPI.getAll();
       categoriesRef.current = items.reduce((cats, item) => {
+        console.log(cats);
+        console.log(item);
         const cat = item.category.name;
         return cats.includes(cat) ? cats : [...cats, cat];
       }, []);
       setMenuItems(items);
       setActiveCat(categoriesRef.current[0]);
     }
+
+
     getItems();
     async function getCart() {
       const cart = await ordersAPI.getCart();
       setCart(cart);
     }
+
+
     getCart();
+
+
   }, []);
   // Providing an empty 'dependency array'
   // results in the effect running after

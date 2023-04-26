@@ -18,7 +18,7 @@ function App() {
     <main className={styles.App}>
      { user ? 
       <>
-      <NavBar user={user} setUser={setUser}/>
+      {/* <NavBar user={user} setUser={setUser}/> */}
       <Routes>
         <Route path='/orders/new' element={ <NewOrderPage user={user} setUser={setUser}/> }/>
         <Route path='/orders' element={ <OrderHistoryPage user={user} setUser={setUser}/>  }/>
